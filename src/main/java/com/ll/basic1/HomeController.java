@@ -2,6 +2,7 @@ package com.ll.basic1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -35,5 +36,11 @@ public class HomeController {
     public String showIncrease () {
         count++;
         return "응답 : " + count;
+    }
+
+    @GetMapping("/home/plus")
+    @ResponseBody
+    public int showPlus (@RequestParam int a, int b) {
+        return a+b;
     }
 }
